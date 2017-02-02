@@ -70,7 +70,7 @@ class Game
     @tries.times { print "*" }
     print "\n"
     print "Misses: #{@board.misses}\n"
-    puts "Take your guess (one character or full word) or press Enter for menu :"
+    puts "Take your guess (one character or full word) or press Enter to exit and save :"
   end
 
   def display_game_end
