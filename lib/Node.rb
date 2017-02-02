@@ -16,4 +16,8 @@ class Node
   def reveal_if(char)
     reveal if @value == char
   end
+
+  def to_s
+    return @value
+  end
 end
