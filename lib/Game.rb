@@ -9,11 +9,11 @@ class Game
   end
 
   def start
-    until @board.solved? || @tries == 0
+    until game_over?
       begin
         display
         guess = prompt_player
-        raise InvalidUpdate.new('') unless guess.length > 0
+        break if guess.length < 1
           if guess.length == 1
             @board.update_board(guess)
             @tries -= 1 unless hit?(guess)
@@ -22,14 +22,14 @@ class Game
             @tries -= 1 unless hit?(guess)
           end
       rescue InvalidUpdate => e
-        display_error(e) unless e.message.length == 0
+        display_error(e)
       end
     end
-    display_game_end
+    display_game_end if game_over?
   end
 
   def generate_secret_word
-    return File.readlines('dictionary.txt').select {|word| word.length > 5 && word.length <= 12 }.sample.strip.downcase
+    return File.readlines('dictionary.txt').select {|word| word.length > 7 && word.length <= 14 }.sample.strip.downcase
   end
 
   def prompt_player
@@ -53,6 +53,10 @@ class Game
     return match_whole || match_letter
   end
 
+  def game_over?
+    return @board.solved? || @tries == 0
+  end
+
   def display_error(e)
     print "\e[2J\e[1;1H"
     puts "#{e.message}. Try again."
@@ -60,13 +64,13 @@ class Game
   end
 
   def display
-    print "\e[2J\e[1;1H"
+    print "\e[2J\e[1;1H\e[?25h"
     @board.display
     print "HP : "
     @tries.times { print "*" }
     print "\n"
     print "Misses: #{@board.misses}\n"
-    puts "Take your guess (one character or full word):"
+    puts "Take your guess (one character or full word) or press Enter to exit and save :"
   end
 
   def display_game_end

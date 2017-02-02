@@ -1,0 +1,36 @@
+--- !ruby/object:Game
+secret: oppressor
+board: !ruby/object:Board
+  word: oppressor
+  secret_nodes:
+  - !ruby/object:Node
+    value: o
+    revealed: false
+  - !ruby/object:Node
+    value: p
+    revealed: false
+  - !ruby/object:Node
+    value: p
+    revealed: false
+  - !ruby/object:Node
+    value: r
+    revealed: false
+  - !ruby/object:Node
+    value: e
+    revealed: false
+  - !ruby/object:Node
+    value: s
+    revealed: false
+  - !ruby/object:Node
+    value: s
+    revealed: false
+  - !ruby/object:Node
+    value: o
+    revealed: false
+  - !ruby/object:Node
+    value: r
+    revealed: false
+  played_chars:
+  - d
+  - f
+tries: 4

@@ -1,0 +1,36 @@
+--- !ruby/object:Game
+secret: gossipy
+board: !ruby/object:Board
+  word: gossipy
+  secret_nodes:
+  - !ruby/object:Node
+    value: g
+    revealed: false
+  - !ruby/object:Node
+    value: o
+    revealed: true
+  - !ruby/object:Node
+    value: s
+    revealed: true
+  - !ruby/object:Node
+    value: s
+    revealed: true
+  - !ruby/object:Node
+    value: i
+    revealed: true
+  - !ruby/object:Node
+    value: p
+    revealed: false
+  - !ruby/object:Node
+    value: y
+    revealed: false
+  played_chars:
+  - s
+  - f
+  - a
+  - i
+  - o
+  - d
+  - l
+  - h
+tries: 1
