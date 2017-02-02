@@ -1,0 +1,28 @@
+--- !ruby/object:Game
+secret: target
+board: !ruby/object:Board
+  word: target
+  secret_nodes:
+  - !ruby/object:Node
+    value: t
+    revealed: false
+  - !ruby/object:Node
+    value: a
+    revealed: true
+  - !ruby/object:Node
+    value: r
+    revealed: false
+  - !ruby/object:Node
+    value: g
+    revealed: true
+  - !ruby/object:Node
+    value: e
+    revealed: false
+  - !ruby/object:Node
+    value: t
+    revealed: false
+  played_chars:
+  - f
+  - g
+  - a
+tries: 5
